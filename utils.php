@@ -36,3 +36,33 @@ function ends_with( $haystack, $needle ) {
     }
     return substr( $haystack, -$length ) === $needle;
 }
+
+function verifier($jour, $mois, $annee){
+    /**
+     * retourne vrai si la date est valide, faux sinon
+     */
+    $nbr_jr_ms = array(
+        1 => 31,
+        2 => array(28, 29),
+        3 => 31,
+        4 => 30,
+        5 => 31,
+        6 => 30,
+        7 => 31,
+        8 => 31,
+        9 => 30,
+        10 => 31,
+        11 => 30,
+        12 => 31
+    );
+
+    if($mois != 2){
+        return 1 <= $jour and $jour <= $nbr_jr_ms[$mois] ;
+    }else{
+        if($annee%4 == 0){
+            return 1 <= $jour and $jour <= $nbr_jr_ms[$mois][1];
+        }else{
+            return 1 <= $jour and $jour <= $nbr_jr_ms[$mois][0];
+        }
+    } 
+}

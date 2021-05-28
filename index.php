@@ -42,7 +42,7 @@
                 
                   <div class="col-md-6">
 
-                    <label for="firstname1" class="form-label" >Nom</label>
+                    <label for="firstname1" class="form-label" >nimportequoi</label>
                     <input type="text" class="form-control" id="firstname1" name="nom">
 
                   </div>
