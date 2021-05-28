@@ -14,7 +14,7 @@
 <body>
     <?php 
     
-     
+    // comment !
     if(isset($_POST["submit"])) {
         afficher($_POST);
         afficher($_FILES);
