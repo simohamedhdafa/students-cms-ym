@@ -29,101 +29,74 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+          <?php require_once 'blocs/navdabr.php' ?>
+          <div class="container">
+            <div class="row">
+              <div class="col-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque assumenda necessitatibus accusamus, ipsum autem similique quasi, rerum omnis dignissimos error molestiae, ut magni ea. Quod vitae id sint provident qui.
+              </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h5>1 of 3</h5>
-      </div>
-      <div class="col-5">
-        
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
+              <div class="col-6">
+                <h1>Formulaire d'inscription d'un nouveau étudiant</h1>
+                <form class="row g-6" method="post" action="validationForm.php" enctype="multipart/form-data">
+                
+                  <div class="col-md-6">
+
+                    <label for="firstname1" class="form-label" >Nom</label>
+                    <input type="text" class="form-control" id="firstname1" name="nom">
+
+                  </div>
+                  <div class="col-md-6">
+
+                    <label for="lastname1" class="form-label">Prénom</label>
+                    <input type="text" class="form-control" id="lastname1" name="prenom">
+
+                  </div>
+                  <div class="col-md-12">
+
+                    <label for="#" class="form-label col-md-4">Date de naissance</label>
+
+                    <select id="jrns" class="form-select col-md-4" name="jour">
+                      <option selected>---- Jour ----</option>
+                      <?php for($i=1; $i<=31; $i++){ ?>
+                        <option><?php echo $i ?></option>
+                      <?php } ?>
+                    </select>
+
+                    <select id="msns" class="form-select col-md-4" name="mois">
+                      <option selected>---- Mois ----</option>
+                      <?php for($i=1; $i<=12; $i++){ ?>
+                        <option><?php echo date('F', mktime(0, 0, 0, $i, 10)); ?></option>
+                      <?php } ?>
+                    </select>
+
+                    <select id="anns" class="form-select col-md-4" name="annee">
+                      <option selected>---- Année ----</option>
+                      <?php for($i=1895; $i<=(2021-18); $i++){ ?>
+                        <option><?php echo $i ?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="edresse">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Entrer votre photo d'identité</label>
+                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+                  </div>
+
+                  <div class="col-6">
+                    
+                    <button type="submit" class="btn btn-primary" name="submit" value="ok">Envoyer</button>
+                    
+                  </div>
+                
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-      </form>
-        
-      </div>
-      <div class="col">
-        <h6>3 of 3</h6>
-      </div>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>
